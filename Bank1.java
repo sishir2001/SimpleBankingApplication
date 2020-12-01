@@ -1,6 +1,6 @@
 import java.util.*;
 // modifued in only one class.
-public class Bank{
+public class Bank1{
     // all the data of the customers.
     private ArrayList<String> AccNo = new ArrayList<String>();
     private ArrayList<Integer> pin = new ArrayList<Integer>();
@@ -231,7 +231,7 @@ public class Bank{
 
 
     public static void main(String[] args){
-        Bank a = new Bank();
+        Bank1 a = new Bank1();
         Scanner scanner = new Scanner(System.in);
         while(true){
             System.out.println("\n\nWELCOME TO OurBank Services!\n");

@@ -133,6 +133,7 @@ public class Bank1{
     }
 
     public void HasAccount(){// existing user
+    	int pass=0;
         if(get_size()>0){
             Scanner scanner = new Scanner(System.in);
             System.out.print("\nEnter the Account No:");//accno
@@ -142,8 +143,8 @@ public class Bank1{
             int pin = scanner.nextInt();
             // verification of accno and pin....
             if(verify(accno, pin)){
-
-                System.out.println("Press\n1-check balance\n2-withdraw\n3-deposit\n4-change credentials\n5-create another account\n6-know your details");
+            	while(pass==0) {
+                System.out.println("Press\n1-check balance\n2-withdraw\n3-deposit\n4-change credentials\n5-create another account\n6-know your details\n7.Previous Menu");
                 int op = scanner.nextInt();
                 switch(op){
                     case 1:
@@ -168,7 +169,7 @@ public class Bank1{
                         depositAmount(accno, pin, deposit);
                         break;
                     case 4:
-                        System.out.println("press\n1-change pin\n2-change address");
+                        System.out.println("press\n1-change pin\n2-change address\n3-Go Back");
                         int a = scanner.nextInt();
                         switch(a){
                             case 1:
@@ -181,6 +182,8 @@ public class Bank1{
                                 String new_address = scanner.nextLine();
                                 update_Address(accno,new_address);
                                 break;
+                            case 3:
+                            	break;
                         }
                         break;
                     case 5:
@@ -192,8 +195,14 @@ public class Bank1{
                     case 6:
                         int index2 = getIndex(accno);
                         System.out.println("Name:"+getName(index2)+"\nAccount Number:"+AccNo.get(index2)+"\nAddress:"+getAddress(index2)+"\nAadharNumber:"+getAadhar(index2));
-
+                        break;
+                    case 7:
+                    	pass=1;
+                    	break;
+                    default:
+                    	System.out.println("Invalid,Kindly check your choice\n");
                 }
+            	}
                 // closing the scanner.
                 // scanner.close();1
             }
